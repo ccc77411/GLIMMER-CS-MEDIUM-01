@@ -31,7 +31,8 @@ int main() {
 3.因为^是按位异或，对应位不同为1，相同为0。所以结果为00010101，转换为十进制为21。  
 4.因为<<是左移，将00001100左移两位为00110000，>>是右移，将00011001右移1位为00001100，再将这两个数按位或得，00111100，转换为十进制为60。  
 - **运行结果**  
-![alt text](image-3.png) 
+<img width="1635" height="663" alt="image" src="https://github.com/user-attachments/assets/56e560d0-b98b-4288-a1d7-f15e37f23e6d" />
+ 
 ### 2.给定一个整数x（十进制），同时指定一个位数n，确定这个整数x的二进制表示上第n位是0还是1。例如：251的二进制表示是11111011，n=3，结果返回0。   
 - **可执行代码**  
 ````
@@ -47,7 +48,8 @@ int main(){
 ````  
 这里为了方便展示加入了打印出结果的部分。
 - **运行结果**   
-![alt text](image-5.png)    
+<img width="1843" height="1258" alt="image" src="https://github.com/user-attachments/assets/2c287e03-8d51-4058-8d10-e516ac5fb403" />
+    
 ### 3.给定一个整数x（十进制），指定一个位数n，给定一个修正值t（0或者1），将整数x的二进制表示上的第n位改为修正值t。输出被修改后的整数。  
 - **可执行代码**   
 ````  
@@ -68,7 +70,8 @@ int main(){
 }
 ````  
 - **运行结果**  
-![alt text](image-6.png)  
+<img width="2050" height="1342" alt="image" src="https://github.com/user-attachments/assets/a8090bd1-607b-4822-a731-aecc0155bb24" />
+  
 ### 4.给定一个有符号32位整数x，找到其二进制表示上从右开始的第一个1，并输出该数，例如：x=10,二进制表示为1010,第一个1在第二位，所以输出二进制表示为10的数2。  
 - **可执行代码**   
 ````
@@ -80,7 +83,7 @@ int main(){
     scanf("%d",&x);
     while (i<32)
     {
-       if (((x>>(i-1))&1)==1)
+       if (((x>>(i-1))&1)==1)   //判断该位是否为1
        {
         printf("%d",i);
         return 0;
@@ -92,7 +95,8 @@ int main(){
 }
 ```` 
 - **运行结果**  
-![alt text](image-7.png)  
+<img width="2053" height="1236" alt="image" src="https://github.com/user-attachments/assets/fdf5ef95-3028-463a-bd2f-1d9d817ee722" />
+  
 ### 5.现在有两串无符号数a和b的二进制编码，并且有a<b，每个数字的大小在100位以内，现在问区间[a,b]内&的结果。  
 - **结果**：其结果为若a，b从左侧第一位开始有连续的对应位相同的数，有多少保留多少，剩下的位全为0。若无相同的则全部位都为0。比如当a=1100，b=1110，则这之间的所有数的按位与为1100。  
 - **原因**：因为在数不断增大的时候后面那些不一样的位一定经过了0和1之间的变换，所以因为并不都是1，最后按位与出来的结果就一定是0，只有前面那些不变的位才能保持不变，因为1&1=1，0&0=0。  
@@ -127,16 +131,16 @@ int hasCommonChar(const char *s1, const char *s2) {
     const char *p2=s2;
     while (*p1)
     {
-       mask1|=1<<(*p1-'a');
+       mask1|=1<<(*p1-'a');   //让其用二进制来表示含有26个字母中的哪些
        (p1++);
        
     }
-    while (*p2)
+    while (*p2)           //同理
     {
        mask2|=1<<(*p2-'a');
        (p2++); 
     }
-    if ((mask1&mask2)!=0)
+    if ((mask1&mask2)!=0)  //让这两个数按位与，看是否在相同位都有1（即含有相同字母）
     {
       return 1;  
     }
@@ -147,8 +151,10 @@ int hasCommonChar(const char *s1, const char *s2) {
 
 ````  
 - **运行结果**  
-![alt text](image-8.png)
-![alt text](image-9.png)
+<img width="1738" height="1248" alt="image" src="https://github.com/user-attachments/assets/c2940b67-25ec-40b9-b855-410ac10724cf" />
+
+<img width="1794" height="1351" alt="image" src="https://github.com/user-attachments/assets/6008b404-c368-42bf-97e0-7f2f57d397b7" />
+
 加了main函数并打印了结果。  
 ## 模块四：反应堆核心 —— 绝对平衡的艺术  
 ### 【任务 4】给定反应堆的规模N(1≤N≤15)，请使用位运算实现求解控制棒摆放方案的总数  
@@ -193,7 +199,8 @@ int main(){
 }
 ````  
 - **运行结果** 
-![alt text](image-11.png)
+<img width="1935" height="1308" alt="image" src="https://github.com/user-attachments/assets/87bc60c7-8c41-4476-ba0c-813764763fef" />
+
 ## 模块五：管道穿梭 —— 自动化寻路  
 ### 【任务 5】编程题：广度优先搜索 (BFS) 与位运算寻路  
 - **补全代码**  
@@ -273,7 +280,8 @@ int main() {
 }
 ````  
 - **运行结果**  
-![alt text](image-10.png) 
+<img width="1935" height="1308" alt="image" src="https://github.com/user-attachments/assets/2a13da7a-14b6-4239-b4b7-e7dc16ef9c55" />
+
 ---  
 PS：感觉这一题的主要难点在于对位级操作的熟练运用，要清晰的知道这六种基本位运算符都可以用来进行怎样的操作。第一次接触真的不知道怎么做，只好是去查资料或者问AI，特别是模块四和模块五。  
 &emsp;模块四是先去上网搜了N皇后问题但我看的他们都没有用位运算来判断，我只好自己想，在经过AI的提示下，终于理解了要用一个数的二进制的每一位来表示每一行可以占用位置的情况，同时那个利用镜像对称来缩减时间的方法也是给AI检查时AI提出的建议，我才改进的不然完全想不到。  
